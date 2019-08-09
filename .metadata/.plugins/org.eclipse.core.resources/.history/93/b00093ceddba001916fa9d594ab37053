@@ -218,7 +218,7 @@ app.controller("updateProfileController",function($scope,$window) {
     
   </div>
   
-</body >
+</body>
 <footer id="userfooter">
 <br>
 <span style="color: white; margin-left: 500px; margin-top: 50px;"> SuperWorks Solutions Pvt Ltd 2019 © All Rights Reserved</span>
