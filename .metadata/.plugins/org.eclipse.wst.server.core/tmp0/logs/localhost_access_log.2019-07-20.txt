@@ -1,0 +1,14 @@
+127.0.0.1 - - [20/Jul/2019:12:34:15 +0530] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:20 +0530] "GET /PolyglotsWebApp/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:21 +0530] "GET /PolyglotsWebApp/js/angular.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:21 +0530] "GET /PolyglotsWebApp/js/jquery.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:21 +0530] "GET /PolyglotsWebApp/js/angular.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:21 +0530] "GET /PolyglotsWebApp/css/main.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:21 +0530] "GET /PolyglotsWebApp/img/wechat.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:21 +0530] "GET /PolyglotsWebApp/img/line.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:21 +0530] "GET /PolyglotsWebApp/img/h4.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:34:22 +0530] "GET /favicon.ico HTTP/1.1" 404 1085
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:35:23 +0530] "GET /PolyglotsWebApp/login.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:35:25 +0530] "GET /PolyglotsWebApp/img/h2.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:35:44 +0530] "POST /PolyglotsWebApp/LoginController HTTP/1.1" 200 3
+0:0:0:0:0:0:0:1 - - [20/Jul/2019:12:35:44 +0530] "GET /PolyglotsWebApp/userProfile.html HTTP/1.1" 304 -

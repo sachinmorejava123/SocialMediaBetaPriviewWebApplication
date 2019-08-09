@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.sm.dto.RegisterDto"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="com.sm.daoI.RegisterDaoI"/>
+    <fullyQualifiedTypeName name="com.sm.daoImpl.RegisterDaoImpl"/>
+    <fullyQualifiedTypeName name="com.sm.dto.LoginDto"/>
+    <fullyQualifiedTypeName name="java.lang.Class"/>
+    <fullyQualifiedTypeName name="com.sm.daoI.LoginDaoI"/>
+    <fullyQualifiedTypeName name="com.sm.daoImpl.LoginDaoImpl"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="com.sm.daoI.ViewProfileDaoI"/>
+    <fullyQualifiedTypeName name="com.sm.daoImpl.ViewProfileDaoImpl"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="com.google.gson.JsonObject"/>
+    <fullyQualifiedTypeName name="com.google.gson.JsonArray"/>
+    <fullyQualifiedTypeName name="com.sm.dto.ViewProfileDto"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.sm.daoI.UpdateProfileDaoI"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.sm.daoImpl.UpdateProfileDaoImpl"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.sm.dto.UpdateProfileDto"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="com.sm.daoI.UpdateUserInfoDaoI"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="com.sm.daoImpl.UpdateUserInfoDaoImpl"/>
+    <fullyQualifiedTypeName name="com.sm.dto.UpdateUserInfoDto"/>
+    <fullyQualifiedTypeName name="com.sm.dto.ForgotPasswordDto"/>
+    <fullyQualifiedTypeName name="com.sm.daoI.ForgotPasswordDaoI"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.sm.util.DbConnection"/>
+    <fullyQualifiedTypeName name="com.sm.daoImpl.ForgotPasswordDaoImpl"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.sm.util.SQLQueryConstant"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="test.AarrayDemo"/>
+</qualifiedTypeNameHistroy>

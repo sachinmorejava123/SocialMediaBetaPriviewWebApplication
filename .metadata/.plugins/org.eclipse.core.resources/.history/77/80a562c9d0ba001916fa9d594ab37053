@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Update Password</title>
+<script src="./js/jquery.js"></script>
+<script src="./js/angular.js"></script>
+<script src="./js/angular.min.js"></script>
+<link rel="stylesheet" href="./css/main.css">
+
+
+ <script type="text/javascript">
+	                    var app = angular.module("updatePassword", []);
+	                    app.controller("updatePasswordController",function($scope,$window) {
+						$scope.updatePassword=function() {
+							
+							var res=1;
+
+							
+							var email = document.getElementById("email").value;
+							var password = document.getElementById("password").value;
+							
+							var url = "http://localhost:4545/PolyglotsWebApp/ForgotPasswordController";
+
+							 if (email == null || email=="") {
+								document.getElementById("err").innerHTML = "Please enter email id";
+							} else if (password == null || password == "") {
+								document.getElementById("err").innerHTML = "Please enter password";
+							} 
+							 
+							
+							$scope.email = email;
+							$scope.password=password;
+							//$scope.url="login.html";
+							
+						    	$.ajax({
+								        url:url,
+										method:"POST",
+										data:{
+											
+											email : email,
+											password : password
+											
+										},
+										success:function(responce) {
+											
+			
+											if(responce == res){
+												
+												document.getElementById("msg").innerHTML="Hi..your password updated successfully";
+												
+												$window.location.href = 'login.html';
+											}else{
+												
+												document.getElementById("err").innerHTML="Hi..your password updation failed";
+												$window.location.href = 'forgotPassword.html';
+											}
+
+										},
+										error:function(error) {
+											console.log(error);
+										}
+									});
+
+						}
+
+						$scope.clearMsg=function() {
+
+							
+							var email = document.getElementById("email").innerHTML = null;
+							var password = document.getElementById("password").innerHTML = null;
+							document.getElementById("err").innerHTML = null;
+							
+
+						}
+					});
+</script>
+</head>
+<header>
+	<nav>
+		<a href="index.html">Home </a>
+	     <a href="register.html">Sign Up </a>
+		 <a href="login.html">Sign In</a>
+	</nav>
+
+</header>
+<body ng-app="updatePassword" ng-controller="updatePasswordController" >
+	<div>
+		<fieldset id="forgotpasswordfieldset">
+
+			<form>
+				<legend>Update Password</legend>
+				<hr>
+				<dl>
+					
+
+					<dt>Enter Mail Id</dt>
+					<dd>
+						<input type="text" id="email" name="email" ng-model="data.email">
+					</dd>
+
+					<dt>Enter New password</dt>
+					<dd>
+						<input type="text" id="password" name="password"
+							ng-model="data.password" required="required">
+					</dd>
+
+
+					<dd><br>
+						<div style="color: red" id="err" name="err" ng-model="err">	</div>
+					</dd>
+					<dd>
+						<div style="color: green;" id="msg" name="msg" ng-model="msg">	</div>
+					</dd>
+                 </dl>
+				  <br><br>
+				<center>
+					<input style="background-color: green" type="button" value="Update" ng-click=updatePassword()>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input style="background-color: red" type="reset" value="Cancel" ng-click="clearMsg()"><br>
+			 	</center>
+			</form>
+    </fieldset>
+	</div>
+</body>
+<footer>
+<br>
+<span style="color: white; margin-left: 500px; margin-top: 50px;"> SuperWorks Solutions Pvt Ltd 2019 © All Rights Reserved</span>
+</footer>
+<html>

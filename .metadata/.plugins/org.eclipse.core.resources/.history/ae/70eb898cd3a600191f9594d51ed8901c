@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Login User</title>
+<script src="./js/jquery.js"></script>
+<script src="./js/angular.js"></script>
+<script src="./js/angular.min.js"></script>
+<link rel="stylesheet" href="./css/main.css">
+
+
+ <script type="text/javascript">
+	                    var app = angular.module("login", []);
+	                    app.controller("loginController",function($scope,$window) {
+						$scope.getLoginInfo=function() {
+
+							
+							var email = document.getElementById("email").value;
+							var password = document.getElementById("password").value;
+							
+							var url = "http://localhost:4545/PolyglotsWebApp/LoginController";
+
+							 if (email == null || email=="") {
+								document.getElementById("err").innerHTML = "Please enter email id";
+							} else if (password == null || password == "") {
+								document.getElementById("err").innerHTML = "Please enter password";
+							} 
+							 
+							
+							$scope.email = email;
+							$scope.password=password;
+							//$scope.url="login.html";
+							
+						    	$.ajax({
+								        url:url,
+										method:"POST",
+										data:{
+											
+											email : email,
+											password : password
+											
+										},
+										success:function(responce) {
+											
+											if(responce !=0){
+												
+												$window.location.href = 'userProfile.html';
+											}else{
+												
+												$window.location.href = 'login.html';
+											}
+
+										},
+										error:function(error) {
+											console.log(error);
+										}
+									});
+
+						}
+
+						$scope.clearMsg=function() {
+
+							
+							var email = document.getElementById("email").innerHTML = null;
+							var password = document.getElementById("password").innerHTML = null;
+							document.getElementById("err").innerHTML = null;
+							
+
+						}
+					});
+</script>
+</head>
+<header>
+	<nav>
+		<a href="">Home </a>
+	     <a href="register.html">Sign Up </a>
+		 <a href="login.html">Sign In</a>
+	</nav>
+
+</header>
+<body ng-app="login" ng-controller="loginController" >
+	<div>
+		<fieldset id="loginfieldset">
+
+			<form>
+				<legend>Login User</legend>
+				<hr>
+				<dl>
+					
+
+					<dt>Enter Mail Id</dt>
+					<dd>
+						<input type="text" id="email" name="email" ng-model="data.email">
+					</dd>
+
+					<dt>Enter password</dt>
+					<dd>
+						<input type="text" id="password" name="password"
+							ng-model="data.password" required="required">
+					</dd>
+
+
+					<dd>
+						<div style="color: red" id="err" name="err" ng-model="err">	</div>
+					</dd>
+
+				</dl>
+				<br> <br>
+				<center>
+					<input style="background-color: green" type="button" value="Login" ng-click=getLoginInfo()>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input style="background-color: red" type="reset" value="Cancel" ng-click="clearMsg()">
+			 	</center>
+
+
+
+
+			</form>
+
+
+		</fieldset>
+	</div>
+
+
+</body>
+<footer>
+<br>
+<span style="color: white; margin-left: 500px; margin-top: 50px;"> Developed By Sachin More © All Rights Reserved</span>
+
+</footer>
+<html>

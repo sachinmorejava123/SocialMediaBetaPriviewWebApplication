@@ -1,0 +1,241 @@
+<html>
+<head>
+<title>Register User</title>
+<script src="./js/jquery.js"></script>
+<script src="./js/angular.js"></script>
+<script src="./js/angular.min.js"></script>
+<link rel="stylesheet" href="./css/main.css">
+
+
+ <script>
+	                    var app = angular.module("register", []);
+	                    app.controller("registerController",function($scope) {
+						$scope.getData = function() {
+
+							var fname = document.getElementById("fname").value;
+							var lname = document.getElementById("lname").value;
+							var email = document.getElementById("email").value;
+							var password = document.getElementById("password").value;
+							var gender = document.getElementById("gender").value;
+							var mobile = document.getElementById("mobile").value;
+							var country = document.getElementById("country").value;
+							var state = document.getElementById("state").value;
+							var city = document.getElementById("city").value;
+							var address = document.getElementById("address").value;
+							var pin = parseInt(document.getElementById("pin").value);
+							
+							var url = "http://localhost:4545/SocialMediaBetaPriviewWebApplication/RegisterController";
+
+							if (fname == null || fname == "") {
+								document.getElementById("err").innerHTML = "Please enter first name";
+
+							} else if (lname == null || lname == "") {
+								document.getElementById("err").innerHTML = "Please enter last name";
+							} else if (email == null || email == "") {
+								document.getElementById("err").innerHTML = "Please enter email id";
+							} else if (password == null || password == "") {
+								document.getElementById("err").innerHTML = "Please enter password";
+							} else if (gender == null || gender == "") {
+								document.getElementById("err").innerHTML = "Please select gender";
+							} else if (mobile == null) {
+								document.getElementById("err").innerHTML = "Please enter mobile number";
+							} else if (country == null || country == "") {
+								document.getElementById("err").innerHTML = "Please select country";
+							} else if (state == null || state == "") {
+								document.getElementById("err").innerHTML = "Please select state";
+							} else if (city == null || city == "") {
+								document.getElementById("err").innerHTML = "Please select city";
+							} else if (address == null || address == "") {
+								document.getElementById("err").innerHTML = "Please enter addrees";
+							} else if (pin == null || pin == "") {
+								document.getElementById("err").innerHTML = "Please enter pin code";
+							}
+
+							$scope.fname = fname;
+							$scope.lname = lname;
+							$scope.email = email;
+							$scope.password = password;
+							$scope.gender = gender;
+							$scope.mobile = mobile;
+							$scope.country = country;
+							$scope.state = state;
+							$scope.city = city;
+							$scope.address = address;
+							$scope.pin = pin;
+
+						    	$.ajax({
+								        url : url,
+										method : "POST",
+										data : {
+											fname : fname,
+											lname : lname,
+											email : email,
+											password : password,
+											gender : gender,
+											mobile : mobile,
+											country : country,
+											state : state,
+											city : city,
+											address : address,
+											pin : pin
+										},
+										success : function(responce) {
+											document.getElementById("msg").innerHTML="successfully done";
+
+										},
+										error : function(error) {
+											console.log(error);
+										}
+									});
+
+						}
+
+						$scope.clearMsg = function() {
+
+							var fname = document.getElementById("fname").innerHTML = null;
+							var lname = document.getElementById("lname").innerHTML = null;
+							var email = document.getElementById("email").innerHTML = null;
+							var password = document.getElementById("password").innerHTML = null;
+							var gender = document.getElementById("gender").innerHTML = null;
+							var mobile = document.getElementById("mobile").innerHTML = null;
+							var address = document.getElementById("address").innerHTML = null;
+							var pin = parseInt(document.getElementById("pin").innerHTML = null);
+							document.getElementById("err").innerHTML = null;
+							document.getElementById("msg").innerHtml = null;
+
+						}
+					});
+</script>
+</head>
+<header>
+	<nav>
+		<a href="index.html">Home </a>
+		 <a href="register.html">Sign Up </a>
+		  <a href="login.html">Sign In</a>
+	</nav>
+
+</header>
+<body ng-app="register" ng-controller="registerController" >
+	<div>
+		<fieldset>
+
+			<form>
+				<legend>Register User</legend>
+				<hr>
+				<dl>
+					<dt>First Name</dt>
+					<dd>
+						<input type="text" id="fname" name="fname" ng-model="data.fname"
+							required="required">
+					</dd>
+
+					<dt>Last name</dt>
+					<dd>
+						<input type="text" id="lname" name="lname" ng-model="data.lname"
+							required="required">
+					</dd>
+
+					<dt>Enter Mail Id</dt>
+					<dd>
+						<input type="text" id="email" name="email" ng-model="data.email"
+							required="required">
+					</dd>
+
+					<dt>Enter password</dt>
+					<dd>
+						<input type="text" id="password" name="password"
+							ng-model="data.password" required="required">
+					</dd>
+
+					<dt>Select gender</dt>
+					<dd>
+						<input type="radio" id="gender" value="Male" name="gender"
+							ng-model="data.gender"> Male <input type="radio"
+							id="gender" value="Female" name="gender" ng-model="data.gender">Female
+					</dd>
+
+					<dt>Enter Contact Number</dt>
+					<dd>
+						<input type="number" id="mobile" name="mobile"
+							ng-model="data.mobile" required="required">
+					</dd>
+
+					<dt>Select country</dt>
+					<dd>
+						<select id="country" name="country" ng-model="data.country"
+							ng-selected="true">
+							<option value="India">India</option>
+							<option value="Ireland">Ireland</option>
+							<option value="Japan">Japan</option>
+						</select>
+					</dd>
+
+					<dt>Select state</dt>
+					<dd>
+						<select id="state" name="state" ng-model="data.state"
+							ng-selected="true">
+							<option value="Maharashtra">Maharashtra</option>
+							<option value="Delhi">Delhi</option>
+							<option value="Gujarat">Gujarat</option>
+							<option value="Telangana">Telangana</option>
+
+						</select>
+					</dd>
+
+					<dt>Select City</dt>
+					<dd>
+						<select id="city" name="city" ng-model="data.city"
+							ng-selected="true">
+							<option value="Hyderabad">Hyderabad</option>
+							<option value="Nizamabad">Nizamabad</option>
+							<option value="Vikarabad">Vikarabad</option>
+							<option value="Pune">Pune</option>
+							<option value="Mumbai">Mumbai</option>
+							<option value="Solapur">Solapur</option>
+
+						</select>
+					</dd>
+
+					<dt>Enter Address</dt>
+					<dd>
+						<textarea type="" id="address" name="address"
+							ng-model="data.address" aria-colcount="50" aria-rowcount="4"
+							ng-required="true"></textarea>
+					</dd>
+
+					<dt>Enter Pin</dt>
+					<dd>
+						<input type="number" id="pin" name="pin" ng-model="data.pin">
+					</dd>
+
+					<dd>
+						<div style="color: red" id="err" name="err" ng-model="err">
+
+							<div style="color: green" id="msg" name="msg" ng-model="msg"></div>
+						</div>
+					</dd>
+
+				</dl>
+				<br> <br>
+				<center>
+					<input style="background-color: green" type="button" value="Register" ng-click=getData()>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input style="background-color: red" type="reset" value="Cancel" ng-click="clearMsg()">
+			 	</center>
+
+
+
+
+			</form>
+
+
+		</fieldset>
+	</div>
+
+
+</body>
+<footer>
+<br>
+<span style="color: white; margin-left: 500px; margin-top: 50px;"> SuperWorks Solutions Pvt Ltd 2019 © All Rights Reserved</span>
+
+</footer>
+<html>

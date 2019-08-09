@@ -1,0 +1,227 @@
+<html >
+<head>
+<title>Update Profile</title>
+<script src="./js/jquery.js"></script>
+<script src="./js/angular.js"></script>
+<script src="./js/angular.min.js"></script>
+<link rel="stylesheet" href="./css/main.css">
+<script>
+  
+var app = angular.module("updateProfile", []);
+app.controller("updateProfileController",function($scope,$window) {
+
+	$scope.isVisible=false;
+	$scope.viewButton=true;
+	
+	$scope.fname;
+	$scope.lname;
+	$scope.email;
+	$scope.gender;
+	$scope.mobile;
+	$scope.country;
+	$scope.state;
+	$scope.city;
+	$scope.address;
+	$scope.pin;
+	
+	$scope.userProfile=function() {
+	
+	var url = "http://localhost:4545/SocialMediaBetaPriviewWebApplication/UpdateProfileController";
+
+	
+	  $.ajax({
+		 url : url,
+		method : "POST",
+		
+		success : function(responce) {
+			//document.getElementById("info").innerHTML=responce;
+			
+			var json = JSON.parse(responce);
+			
+			
+			$scope.fname=json["fname"];
+			$scope.lname=json["lname"];
+			$scope.email=json["email"];
+			$scope.gender=json["gender"];
+			$scope.mobile=json["mobile"];
+			$scope.country=json["country"];
+			$scope.state=json["state"];
+			$scope.city=json["city"];
+			$scope.address=json["address"];
+			$scope.pin=json["pin"];
+			
+			
+			$scope.isVisible=true;
+			$scope.viewButton=false;
+			
+		},
+		error : function(error) {
+			console.log(error);
+			
+		}
+	}); 
+	
+   }
+	
+	//Update user info Logic
+	
+     $scope.updateProfile=function() {
+		
+    	    var fname = document.getElementById("fname").value;
+			var lname = document.getElementById("lname").value;
+			var email = document.getElementById("email").value;
+			var gender = document.getElementById("gender").value;
+			var mobile = document.getElementById("mobile").value;
+			var country = document.getElementById("country").value;
+			var state = document.getElementById("state").value;
+			var city = document.getElementById("city").value;
+			var address = document.getElementById("address").value;
+			var pin = parseInt(document.getElementById("pin").value);
+			
+
+			if (fname == null || fname == "") {
+				document.getElementById("err").innerHTML = "Please enter first name";
+
+			} else if (lname == null || lname == "") {
+				document.getElementById("err").innerHTML = "Please enter last name";
+			} else if (email == null || email == "") {
+				document.getElementById("err").innerHTML = "Please enter email id";
+			} else if (gender == null || gender == "") {
+				document.getElementById("err").innerHTML = "Please select gender";
+			} else if (mobile == null) {
+				document.getElementById("err").innerHTML = "Please enter mobile number";
+			} else if (country == null || country == "") {
+				document.getElementById("err").innerHTML = "Please select country";
+			} else if (state == null || state == "") {
+				document.getElementById("err").innerHTML = "Please select state";
+			} else if (city == null || city == "") {
+				document.getElementById("err").innerHTML = "Please select city";
+			} else if (address == null || address == "") {
+				document.getElementById("err").innerHTML = "Please enter addrees";
+			} else if (pin == null || pin == "") {
+				document.getElementById("err").innerHTML = "Please enter pin code";
+			}
+
+			$scope.fname = fname;
+			$scope.lname = lname;
+			$scope.email = email;
+			$scope.gender = gender;
+			$scope.mobile = mobile;
+			$scope.country = country;
+			$scope.state = state;
+			$scope.city = city;
+			$scope.address = address;
+			$scope.pin = pin;
+
+		
+		
+		var url1 = "http://localhost:4545/SocialMediaBetaPriviewWebApplication/UpdateUserInfoController";
+	
+       $.ajax({
+		  url : url1,
+		  method : "POST",
+		  data:{
+			fname : fname,
+			lname : lname,
+			email : email,
+			gender : gender,
+			mobile : mobile,
+			country : country,
+			state : state,
+			city : city,
+			address : address,
+			pin : pin
+		},
+		
+		success : function(responce) {
+			document.getElementById("msg").innerHTML=responce;
+			
+			 $window.location.href = 'userProfile.html';
+		},
+		error : function(error) {
+			console.log(error);
+			
+		}
+	}); 
+      
+	
+   }
+	
+	$scope.cancleUpdate=function(){
+		$window.location.href = 'userProfile.html';
+	}
+	
+	
+});
+
+
+</script>
+
+</head>
+
+<body id="userbody" ng-app="updateProfile" ng-controller="updateProfileController">
+<header>
+	<nav  >
+		<a href="">Home</a>
+		 <a href="viewProfile.html">View Profile</a>
+		  <a href="updateProfile.html">Edit Profile</a>
+		  <a href="./LogoutController">Sign Out</a>
+	</nav>
+
+</header>
+
+
+ <center><h2> <input ng-show="viewButton" style="height: 50px;width: 250px; background-color: lime;" type="button" value="Click Here To Update Your Profile" ng-click=userProfile()> </h2></center>
+  <div ng-show="isVisible" style="margin-left: 400px;margin-top: 100px; background-color: white;height: 600px;width: 400px;border: 2px solid;">
+    <legend style="margin-left: 120px;color:black;">Your Profile</legend>
+    <hr>
+    <dl>
+    <dt>First Name</dt>
+    <dd><input type="text" id="fname" ng-model="fname"/></dd>
+    
+    <dt>Last Name</dt>
+    <dd ><input type="text" id="lname" ng-model="lname"/> <dd>
+    
+    <dt>Email Id</dt>
+    <dd><input type="text" id="email" ng-model="email"/> </dd>
+    
+    <dt>Gender</dt>
+    <dd><input type="text" id="gender" ng-model="gender"/></dd>
+    
+    <dt>Contact Number</dt>
+    <dd><input type="text" id="mobile" ng-model="mobile"/></dd>
+    
+    <dt>Country</dt>
+    <dd><input type="text" id="country" ng-model="country"/> </dd>
+    
+    <dt>State</dt>
+    <dd><input type="text" id="state" ng-model="state".> </dd>
+    
+    <dt>City</dt>
+    <dd><input type="text" id="city" ng-model="city"/></dd>
+    
+    <dt>Address</dt>
+    <dd><input type="text" id="address" ng-model="address"/> </dd>
+    
+    <dt>Pin Code</dt>
+    <dd><input type="text" id="pin" ng-model="pin"/> </dd>
+    <br>
+    <dd><span style="color: green;" id="msg"></span></dd>
+    <dd><span style="color: red;" id="err"></dd>
+    <br>
+   </dl>
+    <br>
+    <center>
+		<input style="background-color: green" type="button" value="Update" ng-click=updateProfile()>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input style="background-color: red" type="reset" value="Cancel" ng-click="cancleUpdate()">
+	</center>
+    
+  </div>
+  
+</body>
+<footer id="userfooter">
+<br>
+<span style="color: white; margin-left: 500px; margin-top: 50px;"> SuperWorks Solutions Pvt Ltd 2019 © All Rights Reserved</span>
+
+</footer>
+<html>
